@@ -14,7 +14,7 @@ public class Todo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
-	private String desc;
+	private String descricao;
 	private boolean realizado;
 	private int prioridade;
 	public Long getId() {
@@ -29,11 +29,11 @@ public class Todo {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getDesc() {
-		return desc;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setDesc(String desc) {
-		this.desc = desc;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 	public boolean isRealizado() {
 		return realizado;

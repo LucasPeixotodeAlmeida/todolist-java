@@ -2,6 +2,7 @@ package com.lucasp.todolist.controller;
 
 import java.util.List;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -34,9 +35,14 @@ public class TodoController {
 		return todoService.list();
 	}
 	
-	@PutMapping
-	List<Todo> update(@RequestBody Todo todo){
-		return todoService.update(todo);
+	@PutMapping("/{id}")
+	public ResponseEntity<Todo> update(@PathVariable Long id, @RequestBody Todo todo) {
+	    Todo updatedTodo = todoService.update(id, todo);
+	    if (updatedTodo != null) {
+	        return ResponseEntity.ok(updatedTodo);
+	    } else {
+	        return ResponseEntity.notFound().build();
+	    }
 	}
 	
 	@DeleteMapping("{id}")

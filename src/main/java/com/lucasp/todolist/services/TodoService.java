@@ -34,9 +34,18 @@ public class TodoService {
 	}
 
 
-	public List<Todo> update(Todo todo) {
-		todoRepository.save(todo);
-		return list();
+	public Todo update(Long id, Todo todo) {
+	    Todo existingTodo = todoRepository.findById(id).orElse(null);
+	    if (existingTodo != null) {
+	        // Atualiza os campos relevantes do existingTodo com os valores do todo recebido
+	        existingTodo.setNome(todo.getNome());
+	        existingTodo.setPrioridade(todo.getPrioridade());
+	        existingTodo.setDescricao(todo.getDescricao());
+	        existingTodo.setRealizado(todo.isRealizado());
+	        return todoRepository.save(existingTodo);
+	    } else {
+	        return null;
+	    }
 	}
 
 	public List<Todo> delete(Long id) {
