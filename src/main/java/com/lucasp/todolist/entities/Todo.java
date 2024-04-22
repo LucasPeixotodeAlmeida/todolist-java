@@ -14,14 +14,23 @@ public class Todo {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+<<<<<<< HEAD
 	@NotBlank // Garante que o campo não esteja em branco
 	private String nome;
 	@NotBlank // Garante que o campo não esteja em branco
+=======
+	@NotBlank
+	private String nome;
+	@NotBlank
+>>>>>>> 02758962dd9f335e1afe1605c24a12916acba6ed
 	private String descricao;
 	private boolean realizado;
 	private int prioridade;
 	
+<<<<<<< HEAD
 	// Construtor com argumentos
+=======
+>>>>>>> 02758962dd9f335e1afe1605c24a12916acba6ed
 	public Todo(String nome, String descricao, boolean realizado, int prioridade) {
 		this.nome = nome;
 		this.descricao = descricao;
